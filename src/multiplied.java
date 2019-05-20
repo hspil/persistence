@@ -23,14 +23,12 @@ public class multiplied {
 			sixes = 0;
 			temp = 2;
 			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){
-				System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 				nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - 1)))));
 				continue here;
 			}
 			// Skips any unnecessary numbers, but not those with 2/4 ratios, beacause the math is inefficient
 			for (int t = 0; t < stringTotal.length(); t++) {
 				if (temp > Character.getNumericValue(stringTotal.charAt(t))){
-					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
 					continue here;
 				}
@@ -40,7 +38,6 @@ public class multiplied {
 					case '4':
 					case '5':
 					case '0':
-						System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 						nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
 						continue here;
 				}
@@ -53,12 +50,10 @@ public class multiplied {
 				if (stringTotal.charAt(t) == '7')
 					sevens++;
 				if (twos > 1 || threes > 1 || sixes > 1){
-					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
 					continue here;
 				}
 				if (twos > 0 && threes > 0){
-					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
 					twos = 0; threes = 0; sixes = 0;
 					continue here;
@@ -66,7 +61,6 @@ public class multiplied {
 			}
 			
 			if (sevens == 4){
-					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + "\n");
 					nums = nums.add(BigInteger.ONE);
 					continue here;
 			}
@@ -89,10 +83,10 @@ public class multiplied {
 			if(result > MAXSTEPS){
 				MAXSTEPS = result;
 				MAXSTEPS_NUMBER = nums;
-				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + "\n");
+				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 			}
 			else{
-				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + "\n");
+				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + "\n");
 			}
 			 nums = nums.add(BigInteger.ONE);
 		}
