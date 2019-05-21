@@ -12,7 +12,6 @@ public class multiplied {
 		int threes = 0;
 		int twos = 0;
 		int sixes = 0;
-		int sevens = 0;
 		int temp = 2;
 		here: while(true){
 			multi = 10;
@@ -26,9 +25,10 @@ public class multiplied {
 				nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - 1)))));
 				continue here;
 			}
-			// Skips any unnecessary numbers, but not those with 2/4 ratios, beacause the math is inefficient
+			
 			for (int t = 0; t < stringTotal.length(); t++) {
 				if (temp > Character.getNumericValue(stringTotal.charAt(t))){
+					System.out.println("Skipped: " + nums);
 					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
 					continue here;
 				}
@@ -47,8 +47,6 @@ public class multiplied {
 					threes++;
 				if (stringTotal.charAt(t) == '6')
 					sixes++;
-				if (stringTotal.charAt(t) == '7')
-					sevens++;
 				if (twos > 1 || threes > 1 || sixes > 1){
 					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
 					continue here;
@@ -59,12 +57,6 @@ public class multiplied {
 					continue here;
 				}
 			}
-			
-			if (sevens == 4){
-					nums = nums.add(BigInteger.ONE);
-					continue here;
-			}
-			sevens = 0;
 			while (multi > 9) {
 				multi = 1;
 				System.out.println(stringTotal);
