@@ -9,6 +9,7 @@ public class multiplied {
 		String stringTotal = ""; // Used to store a converted nums value
 		int MAXSTEPS = 0; // The current maximum persistence
 		BigInteger MAXSTEPS_NUMBER = new BigInteger("0"); // The lowest number for the highest reached persistence
+		give thing = new give();
 		int threes = 0;
 		int twos = 0;
 		int sixes = 0;
@@ -16,20 +17,19 @@ public class multiplied {
 		here: while(true){
 			multi = 10;
 			stringTotal = nums.toString();
+			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){
+				nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length())))));
+				continue here;
+			}
 			result = 0;
 			twos = 0;
 			threes = 0;
 			sixes = 0;
 			temp = 2;
-			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){
-				nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - 1)))));
-				continue here;
-			}
-			
 			for (int t = 0; t < stringTotal.length(); t++) {
 				if (temp > Character.getNumericValue(stringTotal.charAt(t))){
-					System.out.println("Skipped: " + nums);
-					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
+					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
+					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					continue here;
 				}
 				temp = Character.getNumericValue(stringTotal.charAt(t));
@@ -38,7 +38,8 @@ public class multiplied {
 					case '4':
 					case '5':
 					case '0':
-						nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
+						System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
+						nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)/*Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))*/));
 						continue here;
 				}
 				if (stringTotal.charAt(t) == '2')
@@ -48,11 +49,11 @@ public class multiplied {
 				if (stringTotal.charAt(t) == '6')
 					sixes++;
 				if (twos > 1 || threes > 1 || sixes > 1){
-					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
+					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					continue here;
 				}
 				if (twos > 0 && threes > 0){
-					nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))));
+					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					twos = 0; threes = 0; sixes = 0;
 					continue here;
 				}
