@@ -24,3 +24,5 @@ $RECYCLE.BIN/
 
 .class
 *.class
+*.class
+src/multiplied.class
