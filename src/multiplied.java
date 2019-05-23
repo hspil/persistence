@@ -19,7 +19,6 @@ public class multiplied {
 			stringTotal = nums.toString(); // Converting
 			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){ // We don't need numbers that don't start with 2 or 3 - Well, probably
 				nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - 1))); // Adds 1 to the first digit
-				System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
 				continue here;
 			}
 			result = 0;
@@ -29,7 +28,6 @@ public class multiplied {
 			temp = 2; // Restarted some variables
 			for (int t = 0; t < stringTotal.length(); t++) {
 				if (temp > Character.getNumericValue(stringTotal.charAt(t))){
-					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
 					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					continue here;
 				}
@@ -39,7 +37,6 @@ public class multiplied {
 					case '4':
 					case '5':
 					case '0':
-						System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
 						nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)/*Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))*/));
 						continue here;
 				}
