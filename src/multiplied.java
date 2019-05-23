@@ -56,7 +56,7 @@ public class multiplied {
 					continue here;
 				}
 			}
-			while (multi.intValue() > 9 || multi.intValue() < 0) {
+			while(multi.compareTo(BigInteger.valueOf(9)) == 1) {
 				multi = BigInteger.ONE;
 				System.out.println(stringTotal);
 				for (int t = 0; t < stringTotal.length(); t++) {
