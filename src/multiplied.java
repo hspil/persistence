@@ -32,31 +32,31 @@ public class multiplied {
 					continue here;
 				}
 				temp = Character.getNumericValue(stringTotal.charAt(t));
-				switch(stringTotal.charAt(t)){
-					case '1':
-					case '4':
-					case '5':
-					case '0':
-						nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)/*Integer.toString((int)(Math.pow(10, stringTotal.length() - t - 1)))*/));
+				switch(stringTotal.charAt(t)){ // Skips if there's a 1, 4, 5, or 0
+					case '1': // It's the same number without the digit, which we've already checked
+					case '4': // 4s are evil
+					case '5': // Either causes a 0, or another 5 that causes a 0
+					case '0': // Death
+						nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 						continue here;
 				}
-				if (stringTotal.charAt(t) == '2')
+				if (stringTotal.charAt(t) == '2') // These are for more conditionals
 					twos++;
 				if (stringTotal.charAt(t) == '3')
 					threes++;
 				if (stringTotal.charAt(t) == '6')
 					sixes++;
-				if (twos > 1 || threes > 1 || sixes > 1){
+				if (twos > 1 || threes > 1 || sixes > 1){ // There should only be 1 of 2, 3, and 6 (Not collectively)
 					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					continue here;
 				}
-				if (twos > 0 && threes > 0){
+				if (twos > 0 && threes > 0){ // There should only be either a single 2 or 3
 					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					twos = 0; threes = 0; sixes = 0;
 					continue here;
 				}
 			}
-			while(multi.compareTo(BigInteger.valueOf(9)) == 1) {
+			while(multi.compareTo(BigInteger.valueOf(9)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 				multi = BigInteger.ONE;
 				System.out.println(stringTotal);
 				for (int t = 0; t < stringTotal.length(); t++) {
@@ -67,7 +67,7 @@ public class multiplied {
 			}
 			System.out.println(stringTotal + "\n" + "Steps: " + result);
 			
-			if(result > MAXSTEPS){
+			if(result > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = result;
 				MAXSTEPS_NUMBER = nums;
 				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
@@ -75,7 +75,7 @@ public class multiplied {
 			else{
 				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + "\n");
 			}
-			nums = nums.add(BigInteger.ONE);
+			nums = nums.add(BigInteger.ONE); // Adds 1 onto the number
 		}
 	}
 }
