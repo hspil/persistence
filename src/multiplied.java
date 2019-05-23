@@ -18,7 +18,8 @@ public class multiplied {
 			multi = 10;
 			stringTotal = nums.toString();
 			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){
-				nums = nums.add(new BigInteger(Integer.toString((int)(Math.pow(10, stringTotal.length())))));
+				nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - 1)));
+				System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
 				continue here;
 			}
 			result = 0;
@@ -81,7 +82,7 @@ public class multiplied {
 			else{
 				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + "\n");
 			}
-			 nums = nums.add(BigInteger.ONE);
+			nums = nums.add(BigInteger.ONE); System.out.println(" Added 1");
 		}
 	}
 }
