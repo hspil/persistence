@@ -82,7 +82,7 @@ public class multiplied {
 			else{
 				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + "\n");
 			}
-			nums = nums.add(BigInteger.ONE); System.out.println(" Added 1");
+			nums = nums.add(BigInteger.ONE);
 		}
 	}
 }
