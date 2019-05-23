@@ -1,7 +1,7 @@
 import java.util.*;
 import java.math.*;
 
-public class baseTen {
+public class baseTenPrints {
 	public static void main (String[] args) {
 		int result = 0; // The number of persistence
 		BigInteger nums = new BigInteger("1"); // Essentially, a REALLY big integer
@@ -57,14 +57,17 @@ public class baseTen {
 					continue here;
 				}
 			}
+			System.out.println(stringTotal);
 			while(multi.compareTo(BigInteger.valueOf(9)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 				multi = BigInteger.ONE;
 				for (int t = 0; t < stringTotal.length(); t++) {
 					multi = multi.multiply(BigInteger.valueOf(Character.getNumericValue(stringTotal.charAt(t))));
 				}
 				stringTotal = multi.toString();
+				System.out.println(stringTotal);
 				result++;
-			}			
+			}
+			System.out.println("Steps: " + result + "\n");
 			if(result > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = result;
 				MAXSTEPS_NUMBER = nums;
