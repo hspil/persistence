@@ -5,20 +5,20 @@ public class multiplied {
 	public static void main (String[] args) {
 		int result = 0; // The number of persistence
 		BigInteger nums = new BigInteger("1"); // Essentially, a REALLY big integer
-		long multi = 0; // Math stuffs for multiplying the digits
+		BigInteger multi = new BigInteger("0"); // Math stuffs for multiplying the digits
 		String stringTotal = ""; // Used to store a converted nums value
 		int MAXSTEPS = 0; // The current maximum persistence
 		BigInteger MAXSTEPS_NUMBER = new BigInteger("0"); // The lowest number for the highest reached persistence
-		give thing = new give();
+		give thing = new give(); //Creating an object of the give class, which is used for achieving the left to right adding
 		int threes = 0;
 		int twos = 0;
-		int sixes = 0;
-		int temp = 2;
-		here: while(true){
-			multi = 10;
-			stringTotal = nums.toString();
-			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){
-				nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - 1)));
+		int sixes = 0; // These are used for conditions
+		int temp = 2; // Used to chech if the number starts with at least a 2
+		here: while(true){ // The "here:" is for later, establishing a functional loop
+			multi = new BigInteger("10"); // Setting to a value that works
+			stringTotal = nums.toString(); // Converting
+			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){ // We don't need numbers that don't start with 2 or 3 - Well, probably
+				nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - 1))); // Adds 1 to the first digit
 				System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
 				continue here;
 			}
@@ -26,7 +26,7 @@ public class multiplied {
 			twos = 0;
 			threes = 0;
 			sixes = 0;
-			temp = 2;
+			temp = 2; // Restarted some variables
 			for (int t = 0; t < stringTotal.length(); t++) {
 				if (temp > Character.getNumericValue(stringTotal.charAt(t))){
 					System.out.println("Skipped: " + nums + " Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length());
@@ -59,17 +59,17 @@ public class multiplied {
 					continue here;
 				}
 			}
-			while (multi > 9) {
-				multi = 1;
+			while (multi.intValue() > 9) {
+				multi = BigInteger.ONE;
 				System.out.println(stringTotal);
 				for (int t = 0; t < stringTotal.length(); t++) {
-					multi *= Character.getNumericValue(stringTotal.charAt(t));
+					multi = multi.multiply(BigInteger.valueOf(Character.getNumericValue(stringTotal.charAt(t))));
 				}
-				stringTotal = Long.toString(multi);
+				stringTotal = multi.toString();
 				result++;
 			}
 			
-			if (multi < 9){
+			if (multi.intValue() < 9){
 				System.out.println(stringTotal);
 			}
 			
