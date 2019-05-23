@@ -14,7 +14,7 @@ public class baseEight {
 		int temp = 2;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
 			multi = new BigInteger("8"); // Setting to a value that works
-			stringTotal = nums.toString(4); // Converting
+			stringTotal = nums.toString(8); // Converting
 			result = 0;
 			temp = 2;
 			for (int t = 0; t < stringTotal.length(); t++) {
