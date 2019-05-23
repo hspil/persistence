@@ -59,7 +59,7 @@ public class multiplied {
 					continue here;
 				}
 			}
-			while (multi.intValue() > 9) {
+			while (multi.intValue() > 9 || multi.intValue() < 0) {
 				multi = BigInteger.ONE;
 				System.out.println(stringTotal);
 				for (int t = 0; t < stringTotal.length(); t++) {
@@ -68,12 +68,8 @@ public class multiplied {
 				stringTotal = multi.toString();
 				result++;
 			}
+			System.out.println(stringTotal + "\n" + "Steps: " + result);
 			
-			if (multi.intValue() < 9){
-				System.out.println(stringTotal);
-			}
-			
-			System.out.println("Steps: " + result);
 			if(result > MAXSTEPS){
 				MAXSTEPS = result;
 				MAXSTEPS_NUMBER = nums;
