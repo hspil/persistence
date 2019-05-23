@@ -14,6 +14,7 @@ public class multiplied {
 		int twos = 0;
 		int sixes = 0; // These are used for conditions
 		int temp = 2; // Used to chech if the number starts with at least a 2
+		int currLeng = 1;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
 			multi = new BigInteger("10"); // Setting to a value that works
 			stringTotal = nums.toString(); // Converting
@@ -58,21 +59,19 @@ public class multiplied {
 			}
 			while(multi.compareTo(BigInteger.valueOf(9)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 				multi = BigInteger.ONE;
-				System.out.println(stringTotal);
 				for (int t = 0; t < stringTotal.length(); t++) {
 					multi = multi.multiply(BigInteger.valueOf(Character.getNumericValue(stringTotal.charAt(t))));
 				}
 				stringTotal = multi.toString();
 				result++;
-			}
-			System.out.println(stringTotal + "\n" + "Steps: " + result);
-			
+			}			
 			if(result > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = result;
 				MAXSTEPS_NUMBER = nums;
 				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + stringTotal.length() + "\n");
 			}
-			else{
+			if(nums.toString().length() > currLeng){
+				currLeng++;
 				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + "\n");
 			}
 			nums = nums.add(BigInteger.ONE); // Adds 1 onto the number
