@@ -44,7 +44,7 @@ public class baseSixteen {
 			
 			if(result > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = result;
-				MAXSTEPS_NUMBER =nums.toString(16);
+				MAXSTEPS_NUMBER = nums.toString(16);
 				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString(16).length() + "\n");
 			}
 			nums = nums.add(BigInteger.ONE); // Adds 1 onto the number

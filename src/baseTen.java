@@ -1,7 +1,7 @@
 import java.util.*;
 import java.math.*;
 
-public class multiplied {
+public class baseTen {
 	public static void main (String[] args) {
 		int result = 0; // The number of persistence
 		BigInteger nums = new BigInteger("1"); // Essentially, a REALLY big integer

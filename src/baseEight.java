@@ -14,7 +14,7 @@ public class baseEight {
 		int temp = 2;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
 			multi = new BigInteger("8"); // Setting to a value that works
-			stringTotal = nums.toString(4); // Converting
+			stringTotal = nums.toString(8); // Converting
 			result = 0;
 			temp = 2;
 			for (int t = 0; t < stringTotal.length(); t++) {
@@ -30,21 +30,17 @@ public class baseEight {
 						continue here;
 				}
 			}
-			System.out.println(nums);
 			while(multi.compareTo(BigInteger.valueOf(7)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 				multi = BigInteger.ONE;
 				for (int t = 0; t < stringTotal.length(); t++) {
-					multi = multi.multiply(new BigInteger(stringTotal.charAt(t) + "", 8));
+					multi = multi.multiply(new BigInteger(stringTotal.charAt(t) + ""));
 				}
 				stringTotal = multi.toString();
 				result++;
-				System.out.println(stringTotal);
 				if(multi.toString().length() == 1){
 					break;
 				}
 			}			
-			System.out.println("Steps: " + result);
-
 			
 			if(result > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = result;

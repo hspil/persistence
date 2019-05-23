@@ -33,7 +33,7 @@ public class baseFour {
 			while(multi.compareTo(BigInteger.valueOf(3)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 				multi = BigInteger.ONE;
 				for (int t = 0; t < stringTotal.length(); t++) {
-					multi = multi.multiply(new BigInteger(stringTotal.charAt(t) + "", 16));
+					multi = multi.multiply(new BigInteger(stringTotal.charAt(t) + ""));
 				}
 				stringTotal = multi.toString();
 				result++;
