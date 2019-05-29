@@ -1,0 +1,221 @@
+Base: 3
+Persistence: 1 == 2
+Persistence: 2 == 2222
+Persistence: 3 == 222222
+Persistence: 4 == 2222222222222
+Persistence: 6 == 222222222222222222
+Persistence: 7 == 222222222222222222222222222
+
+Base: 4
+Persistence: 1 == 2
+Persistence: 2 == 223
+Persistence: 3 == 333
+Persistence: 4 == 222223
+Persistence: 5 == 22222223
+Persistence: 6 == 2233333333
+Persistence: 7 == 2222222222333
+Persistence: 8 == 23333333333333
+Persistence: 9 == 222222222223333333
+Persistence: 10 == 222222222222222222222222222222222333
+
+Base: 5
+Persistence: 1 == 2
+Persistence: 2 == 34
+Persistence: 3 == 333
+Persistence: 4 == 2344
+Persistence: 5 == 23444
+Persistence: 7 == 33344444
+Persistence: 8 == 333333344444
+Persistence: 9 == 2333333344444
+Persistence: 10 == 23334444444444444444
+
+Base: 6
+Persistence: 1 == 2
+Persistence: 2 == 25
+Persistence: 3 == 55
+Persistence: 4 == 355
+Persistence: 5 == 23444
+Persistence: 7 == 33344444
+Persistence: 8 == 333333344444
+Persistence: 9 == 2333333344444
+Persistence: 10 == 23334444444444444444
+
+Base: 7
+Persistence: 1 == 2
+Persistence: 2 == 25
+Persistence: 3 == 55
+Persistence: 4 == 355
+Persistence: 5 == 4446
+Persistence: 7 == 2444666
+Persistence: 8 == 246666666
+Persistence: 9 == 446666666
+Persistence: 10 == 444444444444444666
+
+Base: 8
+Persistence: 1 == 2
+Persistence: 2 == 25
+Persistence: 3 == 47
+Persistence: 4 == 77
+Persistence: 5 == 2777
+Persistence: 6 == 44467
+Persistence: 7 == 2444666
+Persistence: 8 == 24466677
+Persistence: 9 == 446666666
+Persistence: 10 == 244666666677
+Persistence: 11 == 244444446666777777
+
+Base: 9
+Persistence: 1 == 2
+Persistence: 2 == 25
+Persistence: 3 == 47
+Persistence: 4 == 77
+Persistence: 5 == 688
+Persistence: 6 == 6788
+Persistence: 7 == 266688
+Persistence: 8 == 3667788
+Persistence: 9 == 266666668
+Persistence: 10 == 36666667788
+Persistence: 11 == 666677777788888
+
+Base: 10
+Persistence: 1 == 2
+Persistence: 2 == 25
+Persistence: 3 == 39
+Persistence: 4 == 77
+Persistence: 5 == 679
+Persistence: 6 == 6788
+Persistence: 7 == 68889
+Persistence: 8 == 2677889
+Persistence: 9 == 26888999
+Persistence: 10 == 3778888999
+Persistence: 11 == 277777788888899
+
+Base: 11
+Persistence: 1 == 2
+Persistence: 2 == 26
+Persistence: 3 == 39
+Persistence: 4 == 77
+Persistence: 5 == 679
+Persistence: 6 == 6788
+Persistence: 7 == 68889
+Persistence: 8 == 2677889
+Persistence: 9 == 26888999
+Persistence: 10 == 3778888999
+Persistence: 11 == 277777788888899
+
+Base: 12
+Persistence: 1 == 2
+Persistence: 2 == 26
+Persistence: 3 == 39
+Persistence: 4 == 6b
+Persistence: 5 == 7b
+Persistence: 6 == 6788
+Persistence: 7 == 68889
+Persistence: 8 == 2677889
+Persistence: 9 == 26888999
+Persistence: 10 == 77999999b
+Persistence: 11 == 777777799bbb
+
+Base: 13
+Persistence: 1 == 2
+Persistence: 2 == 27
+Persistence: 3 == 39
+Persistence: 4 == 6b
+Persistence: 5 == 7b
+Persistence: 6 == 478c
+Persistence: 7 == 28ccc
+Persistence: 8 == 477ccc
+Persistence: 9 == 29ccccc
+Persistence: 10 == 377cccccc
+Persistence: 11 == 777777799bbb
+
+Base: 14
+Persistence: 1 == 2
+Persistence: 2 == 27
+Persistence: 3 == 39
+Persistence: 4 == 3d
+Persistence: 5 == 7b
+Persistence: 6 == 478c
+Persistence: 7 == bbcd
+Persistence: 8 == 788cd
+Persistence: 9 == 29ccccc
+Persistence: 10 == 2bbbddddd
+Persistence: 11 == 2788bbbccddd
+
+Base: 15
+Persistence: 1 == 2
+Persistence: 2 == 28
+Persistence: 3 == 2e
+Persistence: 4 == 6b
+Persistence: 5 == 7b
+Persistence: 6 == 28ce
+Persistence: 7 == bbcd
+Persistence: 8 == 48cde
+Persistence: 9 == 29ccccc
+Persistence: 10 == 9cccccee
+Persistence: 11 == 88bbbccddde
+
+Base: 16
+Persistence: 1 == 2
+Persistence: 2 == 28
+Persistence: 3 == 2e
+Persistence: 4 == 6b
+Persistence: 5 == 7b
+Persistence: 6 == 28ce
+Persistence: 7 == bbcd
+Persistence: 8 == 48cde
+Persistence: 9 == 29ccccc
+Persistence: 10 == 9cccccee
+Persistence: 11 == 88bbbccddde
+
+Base: 17
+Persistence: 1 == 2
+Persistence: 2 == 29
+Persistence: 3 == 3c
+Persistence: 4 == 6b
+Persistence: 5 == 7b
+Persistence: 6 == ceg
+Persistence: 7 == 9cgg
+Persistence: 8 == 2cdeg
+Persistence: 9 == 2999cgg
+Persistence: 10 == 999ceegg
+Persistence: 11 == 3bbbcdddegg
+
+Base: 18
+Persistence: 1 == 2
+Persistence: 2 == 29
+Persistence: 3 == 3c
+Persistence: 4 == 4h
+Persistence: 5 == 7b
+Persistence: 6 == ceg
+Persistence: 7 == 9cgg
+Persistence: 8 == 2cdeg
+Persistence: 9 == 2999cgg
+Persistence: 10 == ceggghh
+Persistence: 11 == 9eeegggghh
+
+Base: 19
+Persistence: 1 == 2
+Persistence: 2 == 2a
+Persistence: 3 == 3d
+Persistence: 4 == 4h
+Persistence: 5 == 2bd
+Persistence: 6 == ceg
+Persistence: 7 == 6ggi
+Persistence: 8 == 2cdeg
+Persistence: 9 == 3ggiii
+Persistence: 10 == ceggghh
+Persistence: 11 == 7eegggghhi
+
+Base: 20
+Persistence: 1 == 2
+Persistence: 2 == 2a
+Persistence: 3 == 2j
+Persistence: 4 == 4h
+Persistence: 5 == 2bd
+Persistence: 6 == 8dj
+Persistence: 7 == 6ggi
+Persistence: 8 == 2cdeg
+Persistence: 9 == 3ggiii
+Persistence: 10 == cdghhij
+Persistence: 11 == bbdehhhhj
