@@ -15,12 +15,12 @@ public class baseTen {
 		int temp = 2; // Used to chech if the number starts with at least a 2
 		int currLeng = 1;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
-			multi = new BigInteger("10"); // Setting to a value that works
 			stringTotal = nums.toString(); // Converting
 			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){ // We don't need numbers that don't start with 2 or 3 - Well, probably
 				nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - 1))); // Adds 1 to the first digit
 				continue here;
 			}
+			multi = new BigInteger("10"); // Setting to a value that works
 			result = 0;
 			twos = 0;
 			threes = 0;

@@ -21,7 +21,6 @@ public class baseWhateverPrints {
 		give thing = new give(); //Creating an object of the give class, which is used for achieving the left to right adding
 		int temp = 2;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
-			multi = new BigInteger("10", base); // Setting to a value that works
 			stringTotal = nums.toString(base); // Converting
 			result = 0;
 			temp = 2;
@@ -30,6 +29,7 @@ public class baseWhateverPrints {
 					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1), base));
 					continue here;
 				}
+				multi = new BigInteger("10", base); // Setting to a value that works
 				temp = Character.getNumericValue(stringTotal.charAt(t));
 				switch(stringTotal.charAt(t)){ // Skips if there's a 1 or 0
 					case '1': // It's the same number without the digit, which we've already checked
