@@ -1,4 +1,3 @@
-import java.util.*;
 import java.math.*;
 
 public class baseEight {
@@ -10,7 +9,6 @@ public class baseEight {
 		int MAXSTEPS = 0; // The current maximum persistence
 		BigInteger MAXSTEPS_NUMBER = new BigInteger("0", 8); // The lowest number for the highest reached persistence
 		give thing = new give(); //Creating an object of the give class, which is used for achieving the left to right adding
-		int currLeng = 1;
 		int temp = 2;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
 			multi = new BigInteger("8"); // Setting to a value that works

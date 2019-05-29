@@ -1,4 +1,3 @@
-import java.util.*;
 import java.math.*;
 
 public class baseSixteen {
@@ -10,9 +9,8 @@ public class baseSixteen {
 		int MAXSTEPS = 0; // The current maximum persistence
 		String MAXSTEPS_NUMBER = "0"; // The lowest number for the highest reached persistence
 		give thing = new give(); //Creating an object of the give class, which is used for achieving the left to right adding
-		int currLeng = 1;
 		int temp = 2;
-		here: while(true){ // The "here:" is for later, establishing a functional loop
+		here: while (true) { // The "here:" is for later, establishing a functional loop
 			multi = new BigInteger("f", 16); // Setting to a value that works
 			stringTotal = nums.toString(16); // Converting
 			result = 0;

@@ -1,5 +1,4 @@
 public class give {
-	public void give(){}
 	public String giveMe (int stringLength) {
 		String result;
 		for(result = "1"; stringLength > 0; stringLength--){
