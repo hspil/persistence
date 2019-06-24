@@ -12,8 +12,13 @@ public class baseTen {
 		int threes = 0;
 		int twos = 0;
 		int sixes = 0; // These are used for conditions
+		int sevens = 0;
+		int eights = 0;
+		int nines = 0;
 		int temp = 2; // Used to chech if the number starts with at least a 2
 		int currLeng = 1;
+		int strangeTest = 0;
+		int strangeLeng = 1;
 		here: while(true){ // The "here:" is for later, establishing a functional loop
 			stringTotal = nums.toString(); // Converting
 			if (stringTotal.charAt(0) != '2' && stringTotal.charAt(0) != '3'){ // We don't need numbers that don't start with 2 or 3 - Well, probably
@@ -24,7 +29,11 @@ public class baseTen {
 			result = 0;
 			twos = 0;
 			threes = 0;
+			sevens = 0;
+			eights = 0;
+			nines = 0;
 			sixes = 0;
+			strangeTest = 0;
 			temp = 2; // Restarted some variables
 			for (int t = 0; t < stringTotal.length(); t++) {
 				if (temp > Character.getNumericValue(stringTotal.charAt(t))){
@@ -46,7 +55,14 @@ public class baseTen {
 					threes++;
 				if (stringTotal.charAt(t) == '6')
 					sixes++;
-				if (twos > 1 || threes > 1 || sixes > 1){ // There should only be 1 of 2, 3, and 6 (Not collectively)
+				if (stringTotal.charAt(t) == '7') // These are for more conditionals
+					sevens++;
+				if (stringTotal.charAt(t) == '8')
+					eights++;
+				if (stringTotal.charAt(t) == '9')
+					nines++;
+	
+				if (twos > 1 || threes > 1 || sixes > 1){ // There should only be one of 2, 3, and 6 (Individually)
 					nums = nums.add(new BigInteger(thing.giveMe(stringTotal.length() - t - 1)));
 					continue here;
 				}
@@ -55,6 +71,23 @@ public class baseTen {
 					twos = 0; threes = 0; sixes = 0;
 					continue here;
 				}
+			}
+			
+			strangeLeng = nums.toString().length() - (twos + threes + sixes);
+			
+			if((sevens > 0 && strangeLeng % sevens != 0) || sevens == strangeLeng){
+				strangeTest++;
+			}
+			if((eights > 0 && strangeLeng % eights != 0) || eights == strangeLeng){
+				strangeTest++;
+			}
+			if((nines > 0 && strangeLeng % nines != 0) || nines == strangeLeng){
+				strangeTest++;
+			}
+			if(strangeTest > 0){
+				nums = nums.add(BigInteger.ONE.add(BigInteger.ONE));
+				sevens = 0; eights = 0; nines = 0; strangeTest = 0;
+				continue here;
 			}
 			while(multi.compareTo(BigInteger.valueOf(9)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 				multi = BigInteger.ONE;
@@ -73,6 +106,7 @@ public class baseTen {
 				currLeng++;
 				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + "\n");
 			}
+			if(MAXSTEPS == 12){return;}
 			nums = nums.add(BigInteger.ONE); // Adds 1 onto the number
 		}
 	}
