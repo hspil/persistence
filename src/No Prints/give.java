@@ -6,5 +6,13 @@ public class give {
 		}
 		return result;
 	}
+	public String timeFormat(long nanoSeconds){
+		double Seconds = (double)nanoSeconds/1000000000.0;
+		int Hrs = (int)(Seconds / 3600);
+		Seconds %= 3600; 
+		int Mins = (int)(Seconds / 60);
+		Seconds %= 60;
+		return Hrs + " Hours " + Mins + " Minutes " + Seconds + " Seconds" + ")"; 
+	}
 }
 
