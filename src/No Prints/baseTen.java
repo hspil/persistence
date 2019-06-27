@@ -70,7 +70,7 @@ public class baseTen {
 					continue here;
 				}
 			}
-			if(sevens != eights && sevens + 1 != eights && sevens != eights + 1 && sevens != nines && sevens + 1 != nines && sevens != nines + 1){
+			if(sevens != eights && sevens + 1 != eights && sevens != eights + 1 && sevens != nines && sevens + 1 != nines && sevens != nines + 1 && eights != nines && eights + 1 != nines && eights != nines + 1){
 				nums = nums.add(BigInteger.ONE.add(BigInteger.ONE));
 				sevens = 0; eights = 0; nines = 0;
 				continue here;
