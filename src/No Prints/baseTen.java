@@ -15,7 +15,7 @@ public class baseTen {
 		int eights = 0;
 		int nines = 0;
 		int temp = 2; // Used to chech if the number starts with at least a 2
-		int currLeng = 1;
+		int currLeng = 0;
 		long initialTime = System.nanoTime();
 		long actTime = initialTime;
 		threading threadRipper = new threading();
@@ -70,23 +70,23 @@ public class baseTen {
 					continue here;
 				}
 			}
-			if(sevens != eights && sevens + 1 != eights && sevens != eights + 1 && sevens != nines && sevens + 1 != nines && sevens != nines + 1 && eights != nines && eights + 1 != nines && eights != nines + 1){
+			if((sevens != eights) && (sevens + 1 != eights) && (sevens != eights + 1) && (sevens != nines) && (sevens + 1 != nines) && (sevens != nines + 1) && (eights != nines) && (eights + 1 != nines) && (eights != nines + 1)){
 				nums = nums.add(BigInteger.ONE.add(BigInteger.ONE));
 				sevens = 0; eights = 0; nines = 0;
 				continue here;
 			}
 			numString.add(nums.toString());
 			if(nums.toString().length() > currLeng){
-				currLeng++;
 				threadRipper.counting(numString);
-				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + " (Total Time: " + thing.timeFormat(System.nanoTime() - initialTime) + " (Action Time: " + thing.timeFormat(System.nanoTime() - actTime) + " Threads: " + threadRipper.threads.size() + "\n");
+				currLeng = nums.toString().length();
+				System.out.println("Current Max Persistence: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + MAXSTEPS_NUMBER.toString().length() + " Current Length: " + currLeng + " (Total Time: " + thing.timeFormat(System.nanoTime() - initialTime) + " (Action Time: " + thing.timeFormat(System.nanoTime() - actTime) + " Threads: " + threadRipper.threads.size() + "\n");
 				actTime = System.nanoTime();
 				numString.clear();
 			}
 			if(threadRipper.MAXSTEPS > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = threadRipper.MAXSTEPS;
 				MAXSTEPS_NUMBER = threadRipper.MAXNUMBER;
-				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString().length() + " (Total Time: " + thing.timeFormat(System.nanoTime() - initialTime) + " (Action Time: " + thing.timeFormat(System.nanoTime() - actTime) + " Threads: " + threadRipper.threads.size() + "\n");
+				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + MAXSTEPS_NUMBER.toString().length() + " (Total Time: " + thing.timeFormat(System.nanoTime() - initialTime) + " (Action Time: " + thing.timeFormat(System.nanoTime() - actTime) + " Threads: " + threadRipper.threads.size() + "\n");
 			}
 			nums = nums.add(BigInteger.ONE); // Adds 1 onto the number
 		}

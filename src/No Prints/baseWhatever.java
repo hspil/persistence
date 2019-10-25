@@ -53,7 +53,7 @@ public class baseWhatever {
 			if(result > MAXSTEPS){ // Some quality of life tracking stuffs
 				MAXSTEPS = result;
 				MAXSTEPS_NUMBER = nums.toString(base);
-				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + nums.toString(base).length() + "\n");
+				System.out.println("New Max: " + MAXSTEPS + " == " + MAXSTEPS_NUMBER + " Number length: " + MAXSTEPS_NUMBER.length() + "\n");
 			}
 			nums = nums.add(BigInteger.ONE); // Adds 1 onto the number
 		}
