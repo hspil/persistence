@@ -12,7 +12,7 @@ public class give {
 		Seconds %= 3600; 
 		int Mins = (int)(Seconds / 60);
 		Seconds %= 60;
-		return Hrs + " Hours " + Mins + " Minutes " + Seconds + " Seconds" + ")"; 
+		return Hrs + " Hours " + Mins + " Minutes " + String.format("%.3f", Seconds) + " Seconds" + ")"; 
 	}
 }
 

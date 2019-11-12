@@ -8,22 +8,23 @@ class Mul extends Thread {
 	public Mul(String numString){stringTotal = numString;}
 	public void run() {
 		steps = 0;
-		thisValue = new BigInteger("10");
-		initialValue = BigInteger.ONE;
 		initialValue = new BigInteger(stringTotal);
 		thisValue = initialValue;
 		while(thisValue.compareTo(BigInteger.valueOf(9)) == 1) { // "multi.compareTo(" returns 1 if the number being used to compare is larger
 			thisValue = BigInteger.ONE;
 			for (int t = 0; t < stringTotal.length(); t++) {
-				thisValue = thisValue.multiply(BigInteger.valueOf(Character.getNumericValue(stringTotal.charAt(t))));
+				thisValue = thisValue.multiply(new BigInteger(stringTotal.charAt(t) + ""));
 			}
 			steps++;
 			stringTotal = thisValue.toString();
+			if(stringTotal.length() == 1){
+				break;
+			}
 		}
 	}
 	public void start (String numString) {
+      thread = new Thread (this);
       if (thread == null) {
-		thread = new Thread (this);
 		start();
       }
       stringTotal = numString;
