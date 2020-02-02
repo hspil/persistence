@@ -23,6 +23,8 @@ $RECYCLE.BIN/
 # =========================
 
 .class
+.vscode/launch.json
 *.class
+src/No Prints/baseTen.class
 *.class
-src/multiplied.class
+src/No Prints/give.class
