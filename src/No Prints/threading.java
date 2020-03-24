@@ -28,11 +28,9 @@ public class threading {
 				}
 			}
 		}
-		while (numString.size() != 0){
-			if(numString.size() > 0){
-				threads.get(0).start(numString.get(0));
-				numString.remove(0);
-			}
+		while(numString.size() != 0){
+			threads.get(0).start(numString.get(0));
+			numString.remove(0);
 		}
 		numString.clear();
     }
