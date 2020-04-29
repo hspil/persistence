@@ -56,7 +56,6 @@ public class LinearRegression {
 		tempSumTwo = tempSumTwo.subtract(xSumSquare);
 		
 		yPosAdd = tempSum.divide(tempSumTwo, precision);
-		
 	}
 	
 	public BigDecimal findPoint(BigDecimal x){
