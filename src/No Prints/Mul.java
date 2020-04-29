@@ -5,7 +5,6 @@ class Mul extends Thread {
 	BigInteger initialValue = BigInteger.ONE;
 	int steps = 0;
 	String stringTotal = "";
-	public Mul(String numString){stringTotal = numString;}
 	public void run() {
 		steps = 0;
 		initialValue = new BigInteger(stringTotal);
@@ -23,10 +22,6 @@ class Mul extends Thread {
 		}
 	}
 	public void start (String numString) {
-      thread = new Thread (this);
-      if (thread == null) {
-		start();
-      }
       stringTotal = numString;
       run();
    }

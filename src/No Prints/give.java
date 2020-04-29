@@ -1,4 +1,11 @@
 public class give {
+	public String giveMe (int stringLength, String firstChar) {
+		String result;
+		for(result = firstChar; stringLength > 0; stringLength--){
+			result += "0";
+		}
+		return result;
+	}
 	public String giveMe (int stringLength) {
 		String result;
 		for(result = "1"; stringLength > 0; stringLength--){
