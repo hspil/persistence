@@ -10,7 +10,7 @@ public class threading {
 		for (int k = 0; k < (objective / maxThreads) + 1; k++){
 			for(int i = 0; i < maxThreads && i < numString.size(); i++){
 				while(maxThreads > threads.size() && numString.size() > threads.size()){
-					threads.add(new Mul(numString.get(0)));
+					threads.add(new Mul());
 				}
 				threads.get(i).start(numString.get(0));
 				numString.remove(0);
