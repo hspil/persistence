@@ -21,5 +21,13 @@ public class give {
 		Seconds %= 60;
 		return Hrs + " Hours " + Mins + " Minutes " + String.format("%.3f", Seconds) + " Seconds" + ")"; 
 	}
+	public String outOfOrder(String unorderedString, int sliceLocation){
+		String newString = unorderedString.substring(0, sliceLocation);
+		String lastChar = unorderedString.charAt(sliceLocation - 1) + "";
+		for(int i = sliceLocation; i < unorderedString.length(); i++){
+			newString += lastChar;
+		}
+		return newString;
+	}
 }
 
