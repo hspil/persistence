@@ -1,8 +1,15 @@
+/**********************************************************************\
+ * This is a very hacky class whose purpose is to generate Strings for  *
+ *                          various purposes.                           *
+ *                      Written by: Kaleb Burris                        *
+ *                   Public Domain, use at own risk.                    *
+ \**********************************************************************/
+
 public class give {
 	public String giveMe (int stringLength, String firstChar) {
 		String result;
 		for(result = firstChar; stringLength > 0; stringLength--){
-			result += "0";
+			result += firstChar;
 		}
 		return result;
 	}
@@ -21,13 +28,17 @@ public class give {
 		Seconds %= 60;
 		return Hrs + " Hours " + Mins + " Minutes " + String.format("%.3f", Seconds) + " Seconds" + ")"; 
 	}
-	public String outOfOrder(String unorderedString, int sliceLocation){
-		String newString = unorderedString.substring(0, sliceLocation);
-		String lastChar = unorderedString.charAt(sliceLocation - 1) + "";
-		for(int i = sliceLocation; i < unorderedString.length(); i++){
-			newString += lastChar;
+	public String outOfOrder(String unorderedString, int largestValueToSlice){
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < unorderedString.length(); i++){
+			if ((unorderedString.charAt(i) + "").equals(Integer.toString(largestValueToSlice))) {
+				sb.append(unorderedString, 0, i);
+				sb.append(Integer.toString(largestValueToSlice).repeat(unorderedString.length() - i));
+				break;
+			}
 		}
-		return newString;
+		//System.out.println("outOfOrder is returning " + retString);
+		return sb.toString();
 	}
 }
 

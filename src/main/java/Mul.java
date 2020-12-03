@@ -1,86 +1,94 @@
-import java.math.*;
-import java.util.Arrays;
+import java.util.ArrayList;
+
+ /**********************************************************************\
+ * This class is a thread that's used to do Multiplicative Persistence. *
+ *                      Written by: Kaleb Burris                        *
+ *                   Public Domain, use at own risk.                    *
+ \**********************************************************************/
 
 class Mul extends Thread {
-	private Thread thread;	
-	BigInteger calcNum = new BigInteger("10");
-	BigInteger initialValue = BigInteger.ONE;
-	int steps = 0;
-	String stringTotal = "";
-	int temp = 0;
-	int tempInt[] = new int[2];
-	String[] tempStrings;
+	// These two ArrayLists are what store the values we calculate.
+	public static ArrayList<ArbitraryInteger> initialValues = new ArrayList<>();
+	public static ArrayList<Integer> steps = new ArrayList<>();
+	// This value will get trashed, but that's okay.
+	private int threadNum;
+
 	public void run() {
-		steps = 0;
-		initialValue = new BigInteger(stringTotal);
-		calcNum = initialValue;
-		here: do{
-			if(calcNum.compareTo(BigInteger.valueOf(10)) != 0){
-				stringTotal = calcNum.toString();
-			}
-			else{
-				stringTotal = initialValue.toString();
-			}
-			 
-			if(stringTotal.length() % 8 == 0){
-				temp = stringTotal.length() / 8;
-			}
-			else{
-				temp = (stringTotal.length() / 8) + 1;
-			}
-			calcNum = new BigInteger("1");	
-			tempInt = new int[temp];
-			Arrays.fill(tempInt, 1);
-			tempStrings = StringSplit(stringTotal, temp);
-			if(temp == 1){
-				do {
-					tempInt[0] = 1;
-					for (int t = 0; t < tempStrings[0].length(); t++) {
-						tempInt[0] *= Character.getNumericValue(tempStrings[0].charAt(t));
-					}
-					steps++;
-					tempStrings[0] = Integer.toString(tempInt[0]);
-					if(tempStrings[0].length() == 1){
-						calcNum = new BigInteger(tempStrings[0]);
-						continue here;
-					}
-				}while(tempStrings[0].length() > 1);
-			}
-			else{
-				for(int target = 0; target < tempStrings.length; target++){
-					tempInt[target] = 1;
-					for(int i = 0; i < tempStrings[target].length(); i++){
-						tempInt[target] *= Character.getNumericValue(tempStrings[target].charAt(i));
-					}
-					tempStrings[target] = Integer.toString(tempInt[target]);
+		String stringTotal = initialValues.get(threadNum).toString();
+		// The case that the number doesn't require ArbitraryInteger, that being that it's below the int max.
+		if (stringTotal.length() <= 9) {
+			// sumNum will be used to sum the product during the multiplication loop.
+			int sumNum;
+			// This check makes sure we're not 1 digit long.
+			while (stringTotal.length() > 1) {
+				// Setting sumNum to the first digit.
+				sumNum = Integer.parseInt(stringTotal.substring(0, 1));
+				//
+				for (int i = 1; i < stringTotal.length(); i++) {
+					// Multiplying sumNum by the next digit.
+					sumNum *= Integer.parseInt(stringTotal.substring(i, i + 1));
 				}
-				for(int i = 0; i < temp; i++){
-					calcNum = calcNum.multiply(BigInteger.valueOf(tempInt[i]));
+				stringTotal = Integer.toString(sumNum);
+				steps.set(threadNum, steps.get(threadNum) + 1);
+			}
+		}
+
+		else {
+			// Declaring the variables.
+			long[] longArray;
+			String[] stringArray;
+			String tempString;
+			int sumNum;
+			ArbitraryInteger arbInt = new ArbitraryInteger(stringTotal);
+			// Looping through until stringTotal is 1 digit long.
+			while (arbInt.toString().length() > 1) {
+				if (arbInt.toString().contains("0")) {
+					// Increments the step value and ends the loop.
+					// Zeroes make the entire value 1 digits long, so there's no reason to waste the time.
+					steps.set(threadNum, steps.get(threadNum) + 1);
+					return;
 				}
-				steps++;
-				continue here;
+				// Makes longArray[] equal to an array of longs - made by ArbitraryInteger.
+				longArray = arbInt.getNumber();
+				// stringArray derives its length from longArray[].
+				stringArray = new String[longArray.length];
+				// Resetting arbInt.
+				arbInt = ArbitraryInteger.ONE;
+				// Looping through stringArray.
+				for (int i = 0; i < stringArray.length; i++) {
+					// Storing the value into tempString to save conversions later.
+					tempString = Long.toString(longArray[i]);
+					// The total sum of the loop.
+					sumNum = Integer.parseInt(tempString.substring(0, 1));
+					// This loop goes through and multiplies the digits together.
+					for (int j = 1; j < tempString.length(); j++) {
+						// Multiplying sumNum by the next digit.
+						sumNum *= Integer.parseInt(stringTotal.substring(i, i + 1));
+					}
+					// Turns sumNum into a String.
+					tempString = Integer.toString(sumNum);
+					// Puts the tempString back into the stringArray[].
+					stringArray[i] = tempString;
+				}
+				// The final step in doing a round of multiplication.
+				for (String string : stringArray) {
+					arbInt = arbInt.multiply(new ArbitraryInteger(string));
+				}
+				// Increments the steps value.
+				steps.set(threadNum, steps.get(threadNum) + 1);
 			}
-		}while(calcNum.toString().length() > 1);
-	}
-	
-	private static String[] StringSplit(String splitee, int numberOfStrings){
-		String[] strings = new String[numberOfStrings];
-		if(numberOfStrings == 1){
-			strings[0] = splitee;
-			return strings;
 		}
-		for(int i = 0; i < numberOfStrings; i++){
-			if(i + 1 == numberOfStrings){
-				strings[i] = splitee.substring(i * 8, (i * 8) + (splitee.length() - (i * 8)));
-				return strings;
-			}
-			strings[i] = splitee.substring((i * 8), (i+1) * 8);
-		}
-		return strings;
+
 	}
-	
-	public void start (String numString) {
-      stringTotal = numString;
-      run();
+
+	// This function starts the thread.
+	// Takes the String needed to be checked and stores it in stringTotal and initializes initialValue.
+	public void start(String numString, int threadNum) {
+		// Setting up the space needed for the thread.
+      	initialValues.add(new ArbitraryInteger(numString));
+      	steps.add(0);
+      	this.threadNum = threadNum;
+      	// Running the thread.
+      	run();
    }
 }
