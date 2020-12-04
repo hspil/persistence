@@ -9,6 +9,10 @@ import java.util.Objects;
 
 
 public class ArbitraryInteger extends Number implements Comparable<ArbitraryInteger> {
+    // Constant values of ArbitraryInteger. Useful for iteration or for starting values as they're already initialized.
+    public static final ArbitraryInteger ONE = new ArbitraryInteger("1");
+    public static final ArbitraryInteger ZERO = new ArbitraryInteger("0");
+    public static final ArbitraryInteger NEGATIVE_ONE = new ArbitraryInteger("-1");
     // The max length of a "group" - how many digits are allowable in an integer in the Number[] array.
     // Note: INT_MAX is 10 digits long. This is for the sake of addition,
     // multiplication is done with longs, which afford much more space.
@@ -21,11 +25,6 @@ public class ArbitraryInteger extends Number implements Comparable<ArbitraryInte
     private long[] Number = null;
     // The sign; denotes positivity (1) or negativity (-1).
     private int sign;
-
-    // Constant values of ArbitraryInteger. Useful for iteration or for starting values as they're already initialized.
-    public static final ArbitraryInteger ONE = new ArbitraryInteger("1");
-    public static final ArbitraryInteger ZERO = new ArbitraryInteger("0");
-    public static final ArbitraryInteger NEGATIVE_ONE = new ArbitraryInteger("-1");
 
     // Used publicly to declare an ArbitraryInteger using a String.
     ArbitraryInteger(String value) {
@@ -142,8 +141,7 @@ public class ArbitraryInteger extends Number implements Comparable<ArbitraryInte
         long[] sum;
         if (x[0] * y[0] >= groupMaxValue) {
             sum = new long[x.length + y.length];
-        }
-        else {
+        } else {
             sum = new long[x.length + y.length - 1];
         }
         // sumCursor points at the place in the sum[] array.
@@ -448,7 +446,7 @@ public class ArbitraryInteger extends Number implements Comparable<ArbitraryInte
             return 0;
         if (thisString.length() > oString.length())
             return 1;
-        if (thisString.length() == oString.length()){
+        if (thisString.length() == oString.length()) {
             int thisFirst = Integer.parseInt(String.valueOf(thisString.charAt(0)));
             int oFirst = Integer.parseInt(String.valueOf(oString.charAt(0)));
             if (thisFirst == oFirst)
@@ -475,8 +473,12 @@ public class ArbitraryInteger extends Number implements Comparable<ArbitraryInte
             // Adding in preceding zeroes using Java's weird methods
             // that I've never seen before.
             if (Long.toString(Number[i]).length() < 9) {
-                sb.append("0".repeat(9 - Long.toString(Number[i]).length()));
+                // appending preceding zeroes.
+                for (int j = 0; j < 9 - Long.toString(Number[i]).length(); j++) {
+                    sb.append("0");
+                }
             }
+            // Upending the rest of the number onto the StringBuilder.
             sb.append(Number[i]);
         }
         // Returning the appended String.
